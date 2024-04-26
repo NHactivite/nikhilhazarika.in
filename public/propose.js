@@ -8,7 +8,7 @@ let i=0;
 const count=()=>{
     i++;
     console.log(i);
-    if(i>=300){
+    if(i>=3){
         alert("Tumi No kba nuara",i)
         i=0;
     }
