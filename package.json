@@ -1,0 +1,17 @@
+{
+  "name": "nikhilhazarika.in",
+  "version": "1.0.0",
+  "description": "��#\u0000 \u0000n\u0000i\u0000k\u0000h\u0000i\u0000l\u0000h\u0000a\u0000z\u0000a\u0000r\u0000i\u0000k\u0000a\u0000.\u0000i\u0000n\u0000\r\u0000 \u0000",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2",
+    "body-parser": "^1.20.2",
+    "mongoose": "^8.3.2"
+  }
+}

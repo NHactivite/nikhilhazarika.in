@@ -1,10 +1,18 @@
 const cursor=document.querySelector(".cursor");
 const imageChanger=document.querySelector(".img");
 const changerButton=document.querySelector(".yes");
-const OFFSET=100;
+const OFFSET=200;
 const DIS=20;
 const evilButton=document.getElementById("no");
-
+let i=0;
+const count=()=>{
+    i++;
+    console.log(i);
+    if(i>=300){
+        alert("Tumi No kba nuara",i)
+        i=0;
+    }
+}
 window.addEventListener("mousemove",(e)=>{
     let x=e.clientX;
     let y=e.clientY;
@@ -16,8 +24,17 @@ window.addEventListener("mousemove",(e)=>{
 });
 
 changerButton.onclick=()=>{
-    console.log("hii");
-     imageChanger.innerHTML=`<img src="./images/hi.gif" id="imgChange" alt="" />`
+     imageChanger.innerHTML=`<img src="./images/hi.gif" id="imgChange" alt="" />`;
+     fetch('/clicked',{method:'POST'}).then(function(response){
+          if(response.ok){
+            console.log('clicked was recored');
+            return;
+          }
+          throw new error('Request failed');
+     })
+     .catch(function(error){
+        console.log(error);
+     })
 }
 
 // evilButton.addEventListener("click",()=>{
@@ -29,7 +46,7 @@ document.addEventListener("mousemove",(e)=>{
     let x=e.pageX;
     let y=e.pageY;
     const buttonBox=evilButton.getBoundingClientRect(); // evilButton.getBoundingClientRect() give x  y position and height and width of evilbutton
-   const horizontalDistance=distanceFromCenter(buttonBox.x,x,buttonBox.width);
+const horizontalDistance=distanceFromCenter(buttonBox.x,x,buttonBox.width);
    const verticalDistance=distanceFromCenter(buttonBox.y,y,buttonBox.height);
    const horizontalOffset= buttonBox.width/2+OFFSET; // this is the distance how close you go to the button
    const verticalOffset= buttonBox.height/2+OFFSET ;// this is the distance how close you go to the button
@@ -39,6 +56,7 @@ document.addEventListener("mousemove",(e)=>{
         buttonBox.x + horizontalOffset/horizontalDistance*10,
         buttonBox.y +verticalOffset/verticalDistance*10
     )
+    count();
    }
 })
 
@@ -67,5 +85,4 @@ const setButtonPosition=(left,top)=>{
 const distanceFromCenter=(boxPosition,mousePosition,boxSize)=>{
       return boxPosition - mousePosition + boxSize/2;   // this function measure the cursor distance from center of the button
 }
-
 

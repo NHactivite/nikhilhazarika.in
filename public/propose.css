@@ -26,8 +26,8 @@
     
 }
  #no{
-    left: 58rem;
-    top:15rem;
+    left: 39rem;
+    top:1rem;
     position: fixed; 
 } 
 .container{
@@ -62,7 +62,7 @@
  
 #imgChange{
     opacity: 0;
-   animation: imgChange 10s ease-in-out forwards;
+   animation: imgChange 8s ease-in-out forwards;
 }
 
     @keyframes imgChange {
@@ -94,3 +94,22 @@
     justify-content: center;
 }
 
+
+@media screen and (max-width:700px ){
+    #no{
+        left:10rem;
+        top:1rem;
+        position: fixed; 
+    } 
+    
+    .text h1{
+        font-size: 1.7rem;
+    
+    }
+    
+.button{
+ width: 7rem;
+height: 2.7rem;
+font-size: 1.4rem;
+}
+}
